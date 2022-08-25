@@ -18,6 +18,9 @@ CLI Commands
 Command will enable the application to run in php development server.
 Navigate to browser and type [http://localhost:8080] or [http://127.0.0.1:8080]
 
+### php artisan mysql:createdb tasks
+Create a new mysql database schema based on the database config file
+
 ### php artisan migrate / php artisan migrate:fresh --seed
 Command will create all required data tables for the system, with [:fresh --seed] it will create 100 dump data
 
@@ -49,6 +52,7 @@ How to isntall
 Navigate to the web root directory and run the following commands
 ### composer install
 ### cp .env.example .env
+### php artisan mysql:createdb tasks
 ### php artisan key:generate
 ### php artisan migrate / php artisan migrate:fresh --seed
 ### npm install
