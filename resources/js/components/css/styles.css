@@ -1,0 +1,77 @@
+body,
+html {
+    font-size: 16px;
+}
+
+.container {
+    height: 100vh;
+}
+
+h2 {
+    font-size: 26px;
+    padding: 20px 0;
+    text-align: center;
+}
+
+h2 small {
+    font-size: 0.5em;
+}
+
+.search-bar {
+    padding: 0.5rem 0;
+}
+
+.dropdown-content {
+    box-shadow: unset !important;
+    padding: 0;
+}
+
+.dropdown {
+    width: 120px;
+}
+
+.dropdown .dropdown-trigger {
+    width: 100%;
+}
+
+.dropdown .dropdown-trigger button {
+    width: 100%;
+}
+
+.pagination {
+    margin-top: -20px;
+}
+
+@media screen and (max-width: 768px) {
+
+    body,
+    html {
+        font-size: 12px;
+    }
+
+    #new-task {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        z-index: 10;
+    }
+
+    #new-task button {
+        border-radius: 50%;
+        font-size: 1.2rem;
+        line-height: 0.1;
+    }
+
+    .modal-card {
+        width: unset;
+    }
+
+    .table tr td:nth-child(2) div {
+        width: 130px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+
+}
