@@ -42,7 +42,9 @@ const TasksList = () => {
     }
 
     useEffect(() => {
-        if (window.innerWidth <= 768) setBtnName("+");
+        if (window.innerWidth <= 768) {
+            setBtnName("+");
+        }
         else setBtnName("New Task");
     }, [currentPage]);
 
@@ -52,8 +54,8 @@ const TasksList = () => {
             <div className="columns is-mobile">
                 <div className="column">
                     <div className="columns">
-                        <div className="column is-two-thirds">
-                            <input type="text" className="input" name="search" placeholder="Search Task" onChange={(e) => onInputChange(e)} />
+                        <div className="column is-two-fifths">
+                            <input type="text" className="input" name="search" placeholder="Search" onChange={(e) => onInputChange(e)} />
                         </div>
                         <div className="column" id="new-task">
                             <button className="button is-link is-pulled-right" onClick={() => OpenForm('new')}>{btnName}</button>
@@ -62,24 +64,24 @@ const TasksList = () => {
                     <table className="table is-fullwidth is-hoverable">
                         <thead>
                             <tr>
-                                <th>No</th>
-                                <th>Name</th>
+                                {/* <th>No</th> */}
+                                <th>Task</th>
                                 <th>Status</th>
-                                <th>Action</th>
+                                <th style={{ width: "135px" }}>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             {
                                 (currentData.length > 0) ? currentData.map((task: any, i: number) => {
                                     return <tr key={i}>
-                                        <td> {(i + 1) + ((currentPage - 1) * 10)} </td>
+                                        {/* <td> {(i + 1) + ((currentPage - 1) * 10)} </td> */}
                                         <td><div>{task.name} </div> </td>
                                         <td>
                                             <DropDown listName={task.status} taskId={task.id} showDropDown={false} onClick={() => toggleDropDown()} />
                                         </td>
                                         <td>
-                                            <button className="button is-small is-success" onClick={() => OpenForm('edit', task)}><FontAwesomeIcon icon={faEdit as IconProp} /></button> &nbsp;
-                                            <button className="button is-small is-danger" onClick={() => Delete(task.id)}><FontAwesomeIcon icon={faTrashAlt as IconProp} /></button>
+                                            <button className="button is-white" onClick={() => OpenForm('edit', task)}><FontAwesomeIcon icon={faEdit as IconProp} /></button>
+                                            <button className="button is-white" onClick={() => Delete(task.id)}><FontAwesomeIcon icon={faTrashAlt as IconProp} /></button>
                                         </td>
                                     </tr>
                                 }) : (

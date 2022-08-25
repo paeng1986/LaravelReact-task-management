@@ -17,7 +17,7 @@ class TaskFactory extends Factory
      */
     public function definition()
     {
-        $status = array('To do','Pending','In Progress','Completed');
+        $status = array('To do','Pending','In progress','Completed');
         return [
             //
             'name' => fake()->name(),

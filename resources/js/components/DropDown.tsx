@@ -1,6 +1,11 @@
 import { useContext, useState } from 'react';
 import { TaskContext } from '../context/TaskContext';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
+
+
 interface Props {
     taskId: number;
     listName: string;
@@ -9,7 +14,7 @@ interface Props {
 
 }
 
-const dropDownList: any = ['To do', 'Pending', 'In Progress', 'Completed'];
+const dropDownList: any = ['To do', 'Pending', 'In progress', 'Completed'];
 
 const DropDown: React.FC<Props> = ({ taskId, listName }: Props): JSX.Element => {
 
@@ -36,6 +41,10 @@ const DropDown: React.FC<Props> = ({ taskId, listName }: Props): JSX.Element => 
             <div className="dropdown-trigger">
                 <button className="button" aria-haspopup="true" aria-controls="dropdown-menu" onClick={(e) => handleClick(e)}>
                     <span>{listName}</span>
+
+                    <span className="icon is-small">
+                        <FontAwesomeIcon icon={faAngleDown as IconProp} />
+                    </span>
                 </button>
             </div>
             <div className="dropdown-menu" id="dropdown-menu" role="menu" tabIndex={0}>
