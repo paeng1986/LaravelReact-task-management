@@ -21,6 +21,9 @@ Navigate to browser and type [http://localhost:8080] or [http://127.0.0.1:8080]
 ### php artisan migrate / php artisan migrate:fresh --seed
 Command will create all required data tables for the system, with [:fresh --seed] it will create 100 dump data
 
+### php artisan key:generate
+Command to generate app key
+
 ### npm install
 This will install the required js modules to be used by the system
 
@@ -42,6 +45,7 @@ How to isntall
 -------------------------------------------------
 Navigate to the web root directory and run the following commands
 ### composer install
+### php artisan key:generate
 ### php artisan migrate / php artisan migrate:fresh --seed
 ### npm install
 ### npm run dev
