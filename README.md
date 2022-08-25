@@ -4,7 +4,7 @@ A system that manages simple tasks
 
 Overview
 --------------------------------------------------
-This system is developed using Laravel (version), ReactJS CRA with Typescript enabled and Context Approach. 
+This system is developed using Laravel (version 9.25.1), ReactJS CRA with Typescript enabled and Context Approach. 
 It is also made using bulma design framework with Responsive Web Design and SweetAlert2
 
 Features
