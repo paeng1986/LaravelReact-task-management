@@ -24,6 +24,9 @@ Command will create all required data tables for the system, with [:fresh --seed
 ### php artisan key:generate
 Command to generate app key
 
+### cp .env.example .env
+Create a copy file of env.example
+
 ### npm install
 This will install the required js modules to be used by the system
 
@@ -45,6 +48,7 @@ How to isntall
 -------------------------------------------------
 Navigate to the web root directory and run the following commands
 ### composer install
+### cp .env.example .env
 ### php artisan key:generate
 ### php artisan migrate / php artisan migrate:fresh --seed
 ### npm install
