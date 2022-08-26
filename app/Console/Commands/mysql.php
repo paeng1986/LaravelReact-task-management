@@ -28,16 +28,30 @@ class mysql extends Command
      */
     public function handle()
     {
-        $schemaName = $this->argument('name') ?: config("database.connections.mysql.database");
-        $charset = config("database.connections.mysql.charset",'utf8mb4');
-        $collation = config("database.connections.mysql.collation",'utf8mb4_general_ci');
+        try{
+            $schemaName = $this->argument('name') ?: config("database.connections.mysql.database");
+            $charset = config("database.connections.mysql.charset",'utf8mb4');
+            $collation = config("database.connections.mysql.collation",'utf8mb4_general_ci');
 
-        config(["database.connections.mysql.database" => null]);
+            config(["database.connections.mysql.database" => null]);
 
-        $query = "CREATE DATABASE IF NOT EXISTS $schemaName CHARACTER SET $charset COLLATE $collation;";
+            $query = "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME =  ?";
+            $db = DB::select($query, [$schemaName]);
 
-        DB::statement($query);
+            if (empty($db)) {
+                $query = "CREATE DATABASE IF NOT EXISTS $schemaName CHARACTER SET $charset COLLATE $collation;";
+                DB::statement($query);
+                config(["database.connections.mysql.database" => $schemaName]);
+                $this->info("Database '$schemaName' has successfully been created.");
+            } else {
+                $this->info("Database $schemaName already exists.");
+            }
+            
+        }
+        catch (\Exception $e){
+            $this->error($e->getMessage());
+        }
 
-        config(["database.connections.mysql.database" => $schemaName]);
+        
     }
 }
